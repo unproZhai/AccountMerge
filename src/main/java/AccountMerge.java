@@ -9,6 +9,13 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class AccountMerge {
+    public static void mergeAccount(String filename) {
+        JSONArray applications = readInput(filename);
+        JSONArray accountResult = mergingAccount(applications);
+        System.out.println(accountResult);
+
+    }
+
     // Read Input for applications
     public static JSONArray readInput(String filename) {
         try {
@@ -23,7 +30,8 @@ public class AccountMerge {
         return null;
     }
 
-    public static JSONArray mergeAccount(JSONArray applications) {
+    // Start merging
+    public static JSONArray mergingAccount(JSONArray applications) {
         Map<String, String> owner = new HashMap<>();
         Map<String, List<Long>> apps = new HashMap<>();
         Map<String, String> parents = new HashMap<>();
@@ -91,9 +99,8 @@ public class AccountMerge {
     }
 
     public static void main(String[] args) {
-        JSONArray applications = readInput("src/main/resources/accounts.json");
-        JSONArray resultAccounts = mergeAccount(applications);
-        System.out.println(resultAccounts.toString());
+        String testFilePath = "src/main/resources/accounts.json";
+        mergeAccount(testFilePath);
     }
 }
 
