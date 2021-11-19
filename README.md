@@ -4,7 +4,7 @@
 mvn clean install
 ```
 
-## Compiles and runs
+## Compile and run
 ```
 mvn exec:java -Dexec.mainClass=AccountMerge
 
